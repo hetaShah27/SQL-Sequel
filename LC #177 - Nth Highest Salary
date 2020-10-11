@@ -1,0 +1,52 @@
+Write a SQL query to get the nth highest salary from the Employee table.
++----+--------+
+| Id | Salary |
++----+--------+
+| 1  | 100    |
+| 2  | 200    |
+| 3  | 300    |
++----+--------+
+For example, given the above Employee table, the nth highest salary where n = 2 is 200. If there is no nth highest salary, then the query should return null.
+
++------------------------+
+| getNthHighestSalary(2) |
++------------------------+
+| 200                    |
++------------------------+
+
+
+Solution:
+# Write your MySQL query statement below:
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+    SET N = N - 1;
+    RETURN (
+            SELECT DISTINCT Salary
+            FROM Employee
+            ORDER BY Salary DESC
+            LIMIT N, 1
+    );
+END
+
+/* Write your T-SQL query statement below: */
+CREATE FUNCTION getNthHighestSalary(@N INT) RETURNS INT AS
+BEGIN
+    RETURN (
+        SELECT TOP 1 Salary
+        FROM (SELECT Salary, DENSE_RANK() OVER (ORDER BY Salary DESC) AS sal_rank
+              FROM Employee) sub
+        WHERE sub.sal_rank = @N
+    );
+END
+
+/* Write your PL/SQL query statement below */
+CREATE FUNCTION getNthHighestSalary(N IN NUMBER) RETURN NUMBER IS
+result NUMBER;
+BEGIN
+    SELECT MAX(Salary) INTO result
+    FROM (SELECT Salary, DENSE_RANK() OVER (ORDER BY Salary DESC) AS sal_rank
+          FROM Employee) sub
+    WHERE sub.sal_rank = N;
+
+    RETURN result;
+END;
