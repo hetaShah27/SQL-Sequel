@@ -1,0 +1,77 @@
+SQL Schema
+Table: Candidate
+Create table If Not Exists Candidate (id int, Name varchar(255))
+Truncate table Candidate
+insert into Candidate (id, Name) values ('1', 'A')
+insert into Candidate (id, Name) values ('2', 'B')
+insert into Candidate (id, Name) values ('3', 'C')
+insert into Candidate (id, Name) values ('4', 'D')
+insert into Candidate (id, Name) values ('5', 'E')
++-----+---------+
+| id  | Name    |
++-----+---------+
+| 1   | A       |
+| 2   | B       |
+| 3   | C       |
+| 4   | D       |
+| 5   | E       |
++-----+---------+  
+
+Table: Vote
+Create table If Not Exists Vote (id int, CandidateId int)
+Truncate table Vote
+insert into Vote (id, CandidateId) values ('1', '2')
+insert into Vote (id, CandidateId) values ('2', '4')
+insert into Vote (id, CandidateId) values ('3', '3')
+insert into Vote (id, CandidateId) values ('4', '2')
+insert into Vote (id, CandidateId) values ('5', '5')
++-----+--------------+
+| id  | CandidateId  |
++-----+--------------+
+| 1   |     2        |
+| 2   |     4        |
+| 3   |     3        |
+| 4   |     2        |
+| 5   |     5        |
++-----+--------------+
+id is the auto-increment primary key, CandidateId is the id appeared in Candidate table.
+
+Write a sql to find the name of the winning candidate, the above example will return the winner B.
++------+
+| Name |
++------+
+| B    |
++------+
+Notes: You may assume there is no tie, in other words there will be only one winning candidate.
+
+
+Solution:
+# Write your MySQL query statement below
+SELECT sub.Name
+FROM (SELECT DISTINCT c.Name, v.CandidateId, COUNT(v.CandidateId) AS vote_count
+        FROM Candidate c
+        JOIN Vote v
+            ON c.id = v.CandidateId
+        GROUP BY v.CandidateId
+        ORDER BY vote_count DESC) sub
+LIMIT 1;
+
+/* Write your T-SQL query statement below */
+SELECT TOP 1 Name
+FROM (SELECT DISTINCT c.Name, v.CandidateId, COUNT(v.CandidateId) AS vote_count
+        FROM Candidate c
+        JOIN Vote v
+            ON c.id = v.CandidateId
+        GROUP BY v.CandidateId, c.Name) sub
+ORDER BY vote_count DESC;
+
+/* Write your PL/SQL query statement below */
+SELECT Name
+FROM Candidate c
+JOIN (SELECT CandidateId, DENSE_RANK() OVER (ORDER BY vote_count DESC) AS vote_rank
+        FROM (SELECT CandidateId, COUNT(*) AS vote_count
+                FROM Vote
+                GROUP BY CandidateId)
+     ) v
+    ON c.id = v.CandidateId
+WHERE v.vote_rank = 1;
