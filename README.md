@@ -7,3 +7,4 @@ SQL Practice from different platforms
 3. LC #574 - Winning Candidate - Medium
 4. LC #578 - Get Highest Answer Rate Question - Medium
 5. LC #579 - Find Cumulative Salary of an Employee - Hard
+6. LC #585 - Investments in 2016 - Medium
