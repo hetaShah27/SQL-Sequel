@@ -10,3 +10,4 @@ SQL Practice from different platforms
 6. LC #585 - Investments in 2016 - Medium
 7. LC #597 - Friend Requests I: Overall Acceptance Rate - Easy
 8. LC #601 - Human Traffic of Stadium - Hard
+9. LC #602 - Friend Requests II: Who has the most friends - Medium
