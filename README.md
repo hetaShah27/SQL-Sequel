@@ -11,3 +11,5 @@ SQL Practice from different platforms
 7. LC #597 - Friend Requests I: Overall Acceptance Rate - Easy
 8. LC #601 - Human Traffic of Stadium - Hard
 9. LC #602 - Friend Requests II: Who has the most friends - Medium
+10. LC #612 - Shortest Distance in a Plane - Medium
+11. LC #614 - Second Degree Follower - Medium
