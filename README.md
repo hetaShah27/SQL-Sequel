@@ -15,3 +15,4 @@ SQL Practice from different platforms
 11. LC #615 - Average Salary: Departments vs Company - Hard
 12. LC #618 - Students Report by Geography - Hard
 13. LC #1083 - Sales Analysis II - Easy
+14. LC #1084 - Sales Analysis III - Easy
