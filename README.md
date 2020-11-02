@@ -17,3 +17,4 @@ SQL Practice from different platforms
 13. LC #1083 - Sales Analysis II - Easy
 14. LC #1084 - Sales Analysis III - Easy
 15. LC #1097 - Game Play Analysis V - Hard
+16. LC #1098 - Unpopular Books - Medium
