@@ -16,3 +16,4 @@ SQL Practice from different platforms
 12. LC #618 - Students Report by Geography - Hard
 13. LC #1083 - Sales Analysis II - Easy
 14. LC #1084 - Sales Analysis III - Easy
+15. LC #1097 - Game Play Analysis V - Hard
