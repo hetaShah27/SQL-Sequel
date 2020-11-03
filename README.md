@@ -19,3 +19,4 @@ SQL Practice from different platforms
 15. LC #1097 - Game Play Analysis V - Hard
 16. LC #1098 - Unpopular Books - Medium
 17. LC #1107 - New Users Daily Count - Medium
+18. LC #1126 - Active Businesses - Medium
