@@ -20,3 +20,5 @@ SQL Practice from different platforms
 16. LC #1098 - Unpopular Books - Medium
 17. LC #1107 - New Users Daily Count - Medium
 18. LC #1126 - Active Businesses - Medium
+19. LC #1127 - User Purchase Platform - Hard
+20. LC #1132 - Reported Posts II - Medium
